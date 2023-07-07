@@ -7,39 +7,6 @@ import { projectTypes } from "./domain/Projects/types/projectTypes";
 
 const prisma = new PrismaClient();
 
-const typeDefs = gql`
-  type Query {
-    users: [User]
-    projects: [Project]
-  }
-
-  type Mutation {
-    createUser(
-      name: String
-      birthDate: String
-      position: String
-      salary: Float
-    ): User
-    createProject(name: String, startDate: String): Project
-  }
-
-  type User {
-    id: Int
-    name: String
-    birthDate: String
-    position: String
-    salary: Float
-    projects: [Project]
-  }
-
-  type Project {
-    id: Int
-    name: String
-    startDate: String
-    users: [User]
-  }
-`;
-
 const resolvers = {
   Query: {
     ...userResolvers.Query,
@@ -58,7 +25,7 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-  typeDefs: [typeDefs, userTypes, projectTypes],
+  typeDefs: [userTypes, projectTypes],
   resolvers,
   context: () => ({
     prisma,

@@ -10,4 +10,17 @@ export const userTypes = gql`
     projects: [Project]
     imageUrl: String
   }
+
+  type Query {
+    users: [User]
+  }
+
+  type Mutation {
+    createUser(
+      name: String
+      birthDate: String
+      position: String
+      salary: Float
+    ): User
+  }
 `;

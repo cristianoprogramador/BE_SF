@@ -7,4 +7,12 @@ export const projectTypes = gql`
     startDate: String
     users: [User]
   }
+
+  type Query {
+    projects: [Project]
+  }
+
+  type Mutation {
+    createProject(name: String, startDate: String): Project
+  }
 `;
