@@ -1,0 +1,44 @@
+name: Check & Test
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - stage
+      - develop
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.12.1"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.12.1"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install --frozen-lockfile --ignore-scripts
+
+      - name: Test
+        run: npm test
