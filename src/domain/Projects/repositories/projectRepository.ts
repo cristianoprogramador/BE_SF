@@ -1,12 +1,12 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Project, User } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export const projectRepository = {
-  createProject: (data: any): Promise<any> => {
+  createProject: (data: Project): Promise<Project> => {
     return prisma.project.create({ data });
   },
-  getUsersByProjectId: (projectId: number): Promise<any[]> => {
+  getUsersByProjectId: (projectId: number): Promise<User[]> => {
     return prisma.project
       .findUnique({ where: { id: projectId } })
       .users()

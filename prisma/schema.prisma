@@ -17,6 +17,7 @@ model User {
   createdAt    DateTime              @default(now())
   position     String
   imageUrl     String
+  email        String
   salary       Float
   projects     Project[]             @relation("UserProject")
   userProjects UserProjectRelation[]

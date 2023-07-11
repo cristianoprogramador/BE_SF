@@ -1,9 +1,9 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, Project } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
 export const projectService = {
-  createProject: (args: any): Promise<any> => {
+  createProject: (args: Project): Promise<Project> => {
     return prisma.project.create({ data: args });
   },
 };

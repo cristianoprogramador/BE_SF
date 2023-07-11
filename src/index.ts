@@ -7,26 +7,9 @@ import { projectTypes } from "./domain/Projects/types/projectTypes";
 
 const prisma = new PrismaClient();
 
-const resolvers = {
-  Query: {
-    ...userResolvers.Query,
-    ...projectResolvers.Query,
-  },
-  Mutation: {
-    ...userResolvers.Mutation,
-    ...projectResolvers.Mutation,
-  },
-  User: {
-    projects: userResolvers.User.projects,
-  },
-  Project: {
-    users: projectResolvers.Project.users,
-  },
-};
-
 const server = new ApolloServer({
   typeDefs: [userTypes, projectTypes],
-  resolvers,
+  resolvers: [userResolvers, projectResolvers],
   context: () => ({
     prisma,
   }),

@@ -6,6 +6,7 @@ CREATE TABLE "User" (
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "position" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
+    "email" TEXT NOT NULL,
     "salary" DOUBLE PRECISION NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")

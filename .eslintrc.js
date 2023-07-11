@@ -23,4 +23,5 @@ module.exports = {
     "no-console": 0, // TODO: change it to 1
     "@typescript-eslint/no-unused-vars": 2,
   },
+  ignorePatterns: ["jest.config.js"],
 };
