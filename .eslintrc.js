@@ -19,8 +19,8 @@ module.exports = {
       { fixStyle: "inline-type-imports" },
     ],
     "@typescript-eslint/explicit-function-return-type": 0,
-    "@typescript-eslint/no-explicit-any": 0, // TODO: change to 2
-    "no-console": 0, // TODO: change it to 1
+    "@typescript-eslint/no-explicit-any": 2,
+    "no-console": 1,
     "@typescript-eslint/no-unused-vars": 2,
   },
   ignorePatterns: ["jest.config.js"],
