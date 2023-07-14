@@ -4,9 +4,12 @@ const controller = new ProjectController();
 
 export const projectResolvers = {
   Query: {
-    projects: controller.projects,
+    projects: controller.projectsQuery,
   },
   Mutation: {
-    createProject: controller.createProject,
+    createProject: controller.createProjectMutation,
+  },
+  Project: {
+    users: controller.projectUsers,
   },
 };

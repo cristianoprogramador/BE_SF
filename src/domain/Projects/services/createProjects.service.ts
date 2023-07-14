@@ -9,6 +9,7 @@ export class CreateProjectService {
   }
 
   public async execute(data: ICreateProjectDTO) {
-    return this.projectRepository.createProject(data);
+    const result = this.projectRepository.createProject(data);
+    return result;
   }
 }

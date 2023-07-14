@@ -15,4 +15,11 @@ export class ProjectRepository implements IProjectRepository {
   public async createProject(data: ICreateProjectDTO) {
     return this.prisma.project.create({ data });
   }
+
+  public async getUsersByProjectId(projectId: number) {
+    return this.prisma.project
+      .findUnique({ where: { id: projectId } })
+      .users()
+      .then((result) => result ?? []);
+  }
 }
