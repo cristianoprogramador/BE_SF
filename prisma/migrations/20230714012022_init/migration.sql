@@ -5,7 +5,7 @@ CREATE TABLE "User" (
     "birthDate" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "position" TEXT NOT NULL,
-    "imageUrl" TEXT NOT NULL,
+    "imageUrl" TEXT,
     "email" TEXT NOT NULL,
     "salary" DOUBLE PRECISION NOT NULL,
 
@@ -16,11 +16,11 @@ CREATE TABLE "User" (
 CREATE TABLE "Project" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
-    "description" TEXT NOT NULL,
-    "client" TEXT NOT NULL,
-    "technologies" TEXT NOT NULL,
+    "description" TEXT,
+    "client" TEXT,
+    "technologies" TEXT,
     "startDate" TIMESTAMP(3) NOT NULL,
-    "delivery" TIMESTAMP(3) NOT NULL,
+    "deliveryDate" TIMESTAMP(3) NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
     CONSTRAINT "Project_pkey" PRIMARY KEY ("id")

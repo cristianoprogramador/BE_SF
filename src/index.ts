@@ -1,9 +1,9 @@
 import { ApolloServer } from "apollo-server";
 import { PrismaClient } from "@prisma/client";
 import { userResolvers } from "./domain/Users/resolvers/userResolvers";
-import { projectResolvers } from "./domain/Projects/resolvers/projectResolvers";
+import { projectResolvers } from "./domain/Projects/resolvers";
 import { userTypes } from "./domain/Users/types/userTypes";
-import { projectTypes } from "./domain/Projects/types/projectTypes";
+import { projectTypes } from "./domain/Projects/typeDefs";
 
 const prisma = new PrismaClient();
 

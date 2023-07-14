@@ -51,7 +51,7 @@ async function seed() {
           "O objetivo é criar um projeto similiar ao Burger King e McDonalds, com um cardapio mas também com a opção de customizar seu proprio lanche. Temos pagina de perfil, historico de pedidos e o carrinho.Tem toda responsividade para ser utilizado no celular.",
         technologies: "React",
         client: "Burgueria Augusta",
-        delivery: new Date("2023-04-01"),
+        deliveryDate: new Date("2023-04-01"),
       },
     });
 
@@ -66,7 +66,7 @@ async function seed() {
           "Tem como objetivo de criar um painel de projeção e controle financeiro para planejamento baseado nos gastos do cotidiano (conta de energia, aluguel, etc). Tem uma pagina de diario, de objetivos mensais, uma pagina com analise grafica e um painel",
         technologies: "React",
         client: "Technologies Company",
-        delivery: new Date("2023-04-01"),
+        deliveryDate: new Date("2023-04-01"),
       },
     });
 
