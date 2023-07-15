@@ -4,5 +4,5 @@ import { type ICreateProjectDTO } from "./createProjectDTO";
 export interface IProjectRepository {
   createProject(data: ICreateProjectDTO): Promise<Project>;
   getAllProjects(): Promise<Project[]>;
-  getUsersByProjectId(projectId: number): Promise<User[]>;
+  getUsersByProjectId(projectId: Project["id"]): Promise<User[]>;
 }

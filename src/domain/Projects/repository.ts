@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, type Project } from "@prisma/client";
 import { type ICreateProjectDTO, type IProjectRepository } from "./types";
 
 export class ProjectRepository implements IProjectRepository {
@@ -16,7 +16,7 @@ export class ProjectRepository implements IProjectRepository {
     return this.prisma.project.create({ data });
   }
 
-  public async getUsersByProjectId(projectId: number) {
+  public async getUsersByProjectId(projectId: Project["id"]) {
     return this.prisma.project
       .findUnique({ where: { id: projectId } })
       .users()
