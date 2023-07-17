@@ -1,12 +1,12 @@
-import { ProjectRepository } from "../repository";
 import { type IProjectRepository } from "../types";
+import { injectable, inject } from "tsyringe";
 
+@injectable()
 export class ListProjectsService {
-  private projectRepository: IProjectRepository;
-
-  constructor() {
-    this.projectRepository = new ProjectRepository();
-  }
+  constructor(
+    @inject("ProjectRepository")
+    private projectRepository: IProjectRepository
+  ) {}
 
   public async execute() {
     const data = await this.projectRepository.getAllProjects();

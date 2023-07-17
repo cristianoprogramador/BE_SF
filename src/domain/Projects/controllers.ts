@@ -5,10 +5,11 @@ import {
   GetUsersByProjectIdService,
 } from "./services";
 import { type Project } from "@prisma/client";
+import { container } from "tsyringe";
 
 export class ProjectController implements IProjectController {
   public async projectsQuery() {
-    const listProjectsService = new ListProjectsService();
+    const listProjectsService = container.resolve(ListProjectsService);
     return listProjectsService.execute();
   }
   public async createProjectMutation(_: undefined, args: ICreateProjectDTO) {

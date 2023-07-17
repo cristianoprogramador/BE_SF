@@ -1,3 +1,6 @@
+import "module-alias/register";
+import "reflect-metadata";
+import "./containers";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs, resolvers } from "./graphql-config";

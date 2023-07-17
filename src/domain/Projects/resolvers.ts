@@ -1,6 +1,7 @@
 import { ProjectController } from "./controllers";
+import { container } from "tsyringe";
 
-const controller = new ProjectController();
+const controller = container.resolve(ProjectController);
 
 export const projectResolvers = {
   Query: {

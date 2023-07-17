@@ -1,7 +1,9 @@
 import { type Project } from "@prisma/client";
 import { prisma } from "../../prisma";
 import { type ICreateProjectDTO, type IProjectRepository } from "./types";
+import { injectable, inject } from "tsyringe";
 
+@injectable()
 export class ProjectRepository implements IProjectRepository {
   private prisma = prisma;
 
