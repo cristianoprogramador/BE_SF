@@ -1,11 +1,12 @@
-import { PrismaClient, type Project } from "@prisma/client";
+import { type Project } from "@prisma/client";
+import { prisma } from "../../prisma";
 import { type ICreateProjectDTO, type IProjectRepository } from "./types";
 
 export class ProjectRepository implements IProjectRepository {
-  private prisma: PrismaClient;
+  private prisma = prisma;
 
   constructor() {
-    this.prisma = new PrismaClient();
+    this.prisma = prisma;
   }
 
   public async getAllProjects() {

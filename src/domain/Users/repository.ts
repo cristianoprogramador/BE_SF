@@ -1,11 +1,12 @@
-import { PrismaClient, type User } from "@prisma/client";
+import { type User } from "@prisma/client";
+import { prisma } from "../../prisma";
 import { type ICreateUserDTO, type IUserRepository } from "./types";
 
 export class UserRepository implements IUserRepository {
-  private prisma = new PrismaClient();
+  private prisma = prisma;
 
   constructor() {
-    this.prisma = new PrismaClient();
+    this.prisma = prisma;
   }
 
   public async getAllUsers() {
