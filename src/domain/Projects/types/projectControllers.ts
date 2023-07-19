@@ -1,4 +1,4 @@
-import { type Project } from "@prisma/client";
+import { type User, type Project } from "@prisma/client";
 import { type ICreateProjectDTO } from "./createProjectDTO";
 
 export interface IProjectController {
@@ -7,4 +7,5 @@ export interface IProjectController {
     _: undefined,
     args: ICreateProjectDTO
   ): Promise<Project>;
+  projectUsers(parent: Project): Promise<User[]>;
 }
