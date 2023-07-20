@@ -1,4 +1,4 @@
-import { gql } from "apollo-server";
+import gql from "graphql-tag";
 
 export const userTypes = gql`
   type User {
@@ -9,6 +9,7 @@ export const userTypes = gql`
     salary: Float
     projects: [Project]
     imageUrl: String
+    email: String
   }
 
   type Query {
@@ -20,6 +21,7 @@ export const userTypes = gql`
       name: String
       birthDate: String
       position: String
+      email: String
       salary: Float
     ): User
   }

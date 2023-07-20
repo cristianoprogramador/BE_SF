@@ -12,7 +12,8 @@
     "migrate:dev": "npx prisma migrate dev",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prisma:gen": "npx prisma generate"
   },
   "keywords": [],
   "author": "",
@@ -39,7 +40,7 @@
   "dependencies": {
     "@apollo/server": "4.7.5",
     "@prisma/client": "4.16.1",
-    "apollo-server": "3.12.0",
-    "graphql": "16.7.1"
+    "graphql": "16.7.1",
+    "graphql-tag": "2.12.6"
   }
 }

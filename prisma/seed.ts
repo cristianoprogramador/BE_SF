@@ -1,6 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { prisma } from "../src/prisma";
 
 async function seed() {
   try {
@@ -12,6 +11,7 @@ async function seed() {
         position: "Dev Frontend",
         salary: 5000.0,
         imageUrl: "https://avatars.githubusercontent.com/u/102186472?v=4",
+        email: "cristiano@email.com",
       },
     });
 
@@ -22,6 +22,7 @@ async function seed() {
         position: "Dev Backend",
         salary: 4000.0,
         imageUrl: "https://i.imgur.com/v76rx7g.jpg",
+        email: "billgates@email.com",
       },
     });
 
@@ -32,6 +33,7 @@ async function seed() {
         position: "Designer UI/UX",
         salary: 6000.0,
         imageUrl: "https://i.imgur.com/knDwrmG.jpg",
+        email: "johncarmack@email.com",
       },
     });
 
@@ -47,7 +49,7 @@ async function seed() {
           "O objetivo é criar um projeto similiar ao Burger King e McDonalds, com um cardapio mas também com a opção de customizar seu proprio lanche. Temos pagina de perfil, historico de pedidos e o carrinho.Tem toda responsividade para ser utilizado no celular.",
         technologies: "React",
         client: "Burgueria Augusta",
-        delivery: new Date("2023-04-01"),
+        deliveryDate: new Date("2023-04-01"),
       },
     });
 
@@ -62,7 +64,7 @@ async function seed() {
           "Tem como objetivo de criar um painel de projeção e controle financeiro para planejamento baseado nos gastos do cotidiano (conta de energia, aluguel, etc). Tem uma pagina de diario, de objetivos mensais, uma pagina com analise grafica e um painel",
         technologies: "React",
         client: "Technologies Company",
-        delivery: new Date("2023-04-01"),
+        deliveryDate: new Date("2023-04-01"),
       },
     });
 

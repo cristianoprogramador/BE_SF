@@ -16,7 +16,8 @@ model User {
   birthDate    DateTime
   createdAt    DateTime              @default(now())
   position     String
-  imageUrl     String
+  imageUrl     String?
+  email        String
   salary       Float
   projects     Project[]             @relation("UserProject")
   userProjects UserProjectRelation[]
@@ -25,11 +26,11 @@ model User {
 model Project {
   id           Int                   @id @default(autoincrement())
   name         String
-  description  String
-  client       String
-  technologies String
+  description  String?
+  client       String?
+  technologies String?
   startDate    DateTime
-  delivery     DateTime
+  deliveryDate DateTime
   createdAt    DateTime              @default(now())
   users        User[]                @relation("UserProject")
   userProjects UserProjectRelation[]
