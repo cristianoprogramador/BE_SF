@@ -13,11 +13,13 @@ export class ProjectController implements IProjectController {
     return listProjectsService.execute();
   }
   public async createProjectMutation(_: undefined, args: ICreateProjectDTO) {
-    const createProjectService = new CreateProjectService();
+    const createProjectService = container.resolve(CreateProjectService);
     return createProjectService.execute(args);
   }
   public async projectUsers(parent: Project) {
-    const getUsersByProjectIdService = new GetUsersByProjectIdService();
+    const getUsersByProjectIdService = container.resolve(
+      GetUsersByProjectIdService
+    );
     return getUsersByProjectIdService.execute(parent.id);
   }
 }

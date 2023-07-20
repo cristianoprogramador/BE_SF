@@ -4,7 +4,7 @@ import { injectable, inject } from "tsyringe";
 @injectable()
 export class ListProjectsService {
   constructor(
-    @inject("ProjectRepository")
+    @inject("IProjectRepository")
     private projectRepository: IProjectRepository
   ) {}
 
