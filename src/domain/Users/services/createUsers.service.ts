@@ -1,12 +1,12 @@
-import { UserRepository } from "../repository";
-import { type ICreateUserDTO, type IUserRepository } from "../types";
+import { type IUserRepository, type ICreateUserDTO } from "../types";
+import { injectable, inject } from "tsyringe";
 
+@injectable()
 export class CreateUsersService {
-  private userRepository: IUserRepository;
-
-  constructor() {
-    this.userRepository = new UserRepository();
-  }
+  constructor(
+    @inject("IUserRepository")
+    private userRepository: IUserRepository
+  ) {}
 
   public async execute(data: ICreateUserDTO) {
     const result = this.userRepository.createUser(data);
