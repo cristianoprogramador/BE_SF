@@ -1,7 +1,7 @@
 import "reflect-metadata";
 import { type User } from "@prisma/client";
 import { UserController } from "../controllers";
-import { container } from "tsyringe"; // Importe o 'container' aqui
+import { container } from "tsyringe";
 
 jest.mock("../controllers", () => ({
   UserController: jest.fn().mockImplementation(() => ({
@@ -11,7 +11,6 @@ jest.mock("../controllers", () => ({
 
 describe("List of Users", () => {
   it("should return a list of users", async () => {
-    // Crie uma instância mockada do ListUsersService
     const mockListUsersService = {
       execute: jest.fn().mockResolvedValue([
         {
@@ -37,24 +36,18 @@ describe("List of Users", () => {
       ] as User[]),
     };
 
-    // Registre a instância mockada do ListUsersService no contêiner do tsyringe
     container.register("ListUsersService", { useValue: mockListUsersService });
 
-    // Crie uma instância do UserController resolvendo suas dependências usando o contêiner do tsyringe
     const controller = container.resolve(UserController);
 
-    // Mock a implementação do usersQuery para retornar os usuários simulados
     (controller.usersQuery as jest.Mock).mockResolvedValue(
       mockListUsersService.execute()
     );
 
-    // Chame a função usersQuery
     const users = await controller.usersQuery();
 
-    // Verifique se o resultado é um array
     expect(Array.isArray(users)).toBe(true);
 
-    // Verifique se o resultado contém os usuários simulados
     expect(users).toEqual([
       {
         id: 1,
@@ -78,7 +71,6 @@ describe("List of Users", () => {
       },
     ]);
 
-    // Verifique se a função ListUsersService.execute foi chamada
     expect(mockListUsersService.execute).toHaveBeenCalledTimes(1);
   });
 });
