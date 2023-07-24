@@ -1,5 +1,5 @@
 import { type User } from "@prisma/client";
-import { type ICreateUserDTO, type IUserRepository } from "./types";
+import { type ICreateUserDTO, type IUserRepository } from "../types";
 import { PrismaClient } from "@prisma/client";
 import { injectable } from "tsyringe";
 
