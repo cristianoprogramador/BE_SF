@@ -2,7 +2,7 @@ import { container } from "tsyringe";
 import { USERS_LIST_MOCK } from "../repositories/repositoryMock";
 import { type ListUsersService } from "./listUsers.service";
 
-describe("List of Users", () => {
+describe("service: ListUsersService", () => {
   it("should return a list of users with projects", async () => {
     const service = container.resolve<ListUsersService>("ListUsersService");
 

@@ -1,9 +1,8 @@
-import "reflect-metadata";
 import { container } from "tsyringe";
 import { PROJECTS_LIST_MOCK } from "../repositories/repositoryMock";
 import { type GetProjectsByUserIdService } from "./getProjectsByUserId.service";
 
-describe("Get Projects By User ID", () => {
+describe("service: GetProjectsByUserIdService", () => {
   it("should return projects associated with a user", async () => {
     const service = container.resolve<GetProjectsByUserIdService>(
       "GetProjectsByUserIdService"
@@ -11,7 +10,7 @@ describe("Get Projects By User ID", () => {
     const userId = 1;
     const result = await service.execute(userId);
 
-    expect(result).toEqual(PROJECTS_LIST_MOCK);
+    expect(result).toStrictEqual(PROJECTS_LIST_MOCK);
   });
 
   it("should return an empty array if the user has no projects", async () => {
@@ -22,6 +21,6 @@ describe("Get Projects By User ID", () => {
     const userId = 3;
     const result = await service.execute(userId);
 
-    expect(result).toEqual([]);
+    expect(result).toStrictEqual([]);
   });
 });

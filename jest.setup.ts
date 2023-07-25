@@ -10,7 +10,6 @@ import {
 container
   .registerSingleton<IUserRepository>("IUserRepository", UserRepositoryMock)
   .register<ListUsersService>("ListUsersService", ListUsersService)
-  .registerSingleton<IUserRepository>("IUserRepository", UserRepositoryMock)
   .register<GetProjectsByUserIdService>(
     "GetProjectsByUserIdService",
     GetProjectsByUserIdService
