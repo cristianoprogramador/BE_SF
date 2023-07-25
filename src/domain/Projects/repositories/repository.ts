@@ -1,5 +1,5 @@
 import { type Project, PrismaClient } from "@prisma/client";
-import { type ICreateProjectDTO, type IProjectRepository } from "./types";
+import { type ICreateProjectDTO, type IProjectRepository } from "../types";
 import { injectable } from "tsyringe";
 
 @injectable()

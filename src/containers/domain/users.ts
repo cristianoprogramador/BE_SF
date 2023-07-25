@@ -4,7 +4,7 @@ import {
   type IUserController,
   type IUserRepository,
 } from "@/domain/Users/types";
-import { UserRepository } from "@/domain/Users/repository";
+import { UserRepository } from "@/domain/Users/repositories/repository";
 
 import { UserController } from "@/domain/Users/controllers";
 

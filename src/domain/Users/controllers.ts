@@ -12,6 +12,7 @@ export class UserController implements IUserController {
     const listUsersService = container.resolve(ListUsersService);
     return listUsersService.execute();
   }
+
   public async createUserMutation(_: undefined, args: ICreateUserDTO) {
     const createUsersService = container.resolve(CreateUsersService);
     return createUsersService.execute(args);

@@ -4,7 +4,7 @@ import {
   type IProjectRepository,
   type IProjectController,
 } from "@/domain/Projects/types";
-import { ProjectRepository } from "@/domain/Projects/repository";
+import { ProjectRepository } from "@/domain/Projects/repositories/repository";
 
 import { ProjectController } from "@/domain/Projects/controllers";
 
