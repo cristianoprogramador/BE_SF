@@ -9,6 +9,7 @@ export const userResolvers = {
   },
   Mutation: {
     createUser: controller.createUserMutation,
+    editUser: controller.editUserMutation,
   },
   User: {
     projects: controller.userProjects,

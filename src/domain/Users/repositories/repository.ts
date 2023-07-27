@@ -1,5 +1,9 @@
 import { type User } from "@prisma/client";
-import { type ICreateUserDTO, type IUserRepository } from "../types";
+import {
+  type IEditUserDTO,
+  type ICreateUserDTO,
+  type IUserRepository,
+} from "../types";
 import { PrismaClient } from "@prisma/client";
 import { injectable } from "tsyringe";
 
@@ -24,5 +28,20 @@ export class UserRepository implements IUserRepository {
       .findUnique({ where: { id: userId } })
       .projects()
       .then((result) => result ?? []);
+  }
+
+  public async editUser(userId: User["id"], data: IEditUserDTO) {
+    const existingUser = await this.prisma.user.findUnique({
+      where: { id: userId },
+    });
+
+    if (!existingUser) {
+      throw new Error("User not found");
+    }
+
+    return this.prisma.user.update({
+      where: { id: userId },
+      data,
+    });
   }
 }
