@@ -38,6 +38,15 @@ export const PROJECTS_LIST_MOCK = [
   },
 ] satisfies Project[];
 
+export const CREATE_USER_LIST_MOCK = {
+  name: "Chris Sawyer",
+  birthDate: new Date("1990-01-01"),
+  position: "Dev FullStack",
+  email: "sawyer@email.com",
+  salary: 3000,
+  imageUrl: "http://google.com/image/user2.jpg",
+} satisfies ICreateUserDTO;
+
 @injectable()
 export class UserRepositoryMock implements IUserRepository {
   public async getAllUsers() {
@@ -45,11 +54,12 @@ export class UserRepositoryMock implements IUserRepository {
   }
 
   public async createUser(data: ICreateUserDTO) {
-    return {
+    const newUser = {
       ...data,
       id: 1,
       createdAt: new Date(),
-    } satisfies User;
+    };
+    return newUser;
   }
 
   public async getProjectsByUserId(userId: User["id"]) {
