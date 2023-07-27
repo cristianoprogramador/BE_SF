@@ -14,6 +14,7 @@ async function seed() {
         salary: 5000.0,
         imageUrl: "https://avatars.githubusercontent.com/u/102186472?v=4",
         email: "cristiano@email.com",
+        status: "Active",
       },
     });
 
@@ -25,6 +26,7 @@ async function seed() {
         salary: 4000.0,
         imageUrl: "https://i.imgur.com/v76rx7g.jpg",
         email: "billgates@email.com",
+        status: "Active",
       },
     });
 
@@ -36,6 +38,7 @@ async function seed() {
         salary: 6000.0,
         imageUrl: "https://i.imgur.com/knDwrmG.jpg",
         email: "johncarmack@email.com",
+        status: "Active",
       },
     });
 

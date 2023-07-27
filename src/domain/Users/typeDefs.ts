@@ -10,6 +10,7 @@ export const userTypes = gql`
     projects: [Project]
     imageUrl: String
     email: String
+    status: String
   }
 
   type Query {
@@ -24,5 +25,15 @@ export const userTypes = gql`
       email: String
       salary: Float
     ): User
+    editUser(id: Int, input: EditUserInput): User
+  }
+
+  input EditUserInput {
+    name: String
+    birthDate: String
+    position: String
+    email: String
+    salary: Float
+    imageUrl: String
   }
 `;
