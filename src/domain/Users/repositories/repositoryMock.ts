@@ -12,6 +12,7 @@ export const USERS_LIST_MOCK = [
     position: "frontend",
     imageUrl: "http://google.com/image/user1.jpg",
     salary: 3500,
+    status: "Active",
   },
   {
     id: 2,
@@ -22,6 +23,7 @@ export const USERS_LIST_MOCK = [
     position: "backend",
     imageUrl: "http://google.com/image/user2.jpg",
     salary: 3500,
+    status: "Inactive",
   },
 ] satisfies User[];
 
@@ -58,6 +60,7 @@ export class UserRepositoryMock implements IUserRepository {
       ...data,
       id: 1,
       createdAt: new Date(),
+      status: "Active",
     };
     return newUser;
   }
