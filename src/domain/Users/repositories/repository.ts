@@ -45,6 +45,7 @@ export class UserRepository implements IUserRepository {
       data,
     });
   }
+
   public async changeStatusUser(
     userId: User["id"],
     data: IChangeStatusUserDTO
