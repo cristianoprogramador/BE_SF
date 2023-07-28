@@ -10,6 +10,7 @@ export const userResolvers = {
   Mutation: {
     createUser: controller.createUserMutation,
     editUser: controller.editUserMutation,
+    statusChangeUser: controller.statusChangeMutation,
   },
   User: {
     projects: controller.userProjects,

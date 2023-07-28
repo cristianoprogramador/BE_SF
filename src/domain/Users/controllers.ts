@@ -1,5 +1,6 @@
 import { type User } from "@prisma/client";
 import {
+  ChangeStatusUsersService,
   CreateUsersService,
   EditUsersService,
   GetProjectsByUserIdService,
@@ -9,6 +10,7 @@ import {
   type IEditUserDTO,
   type ICreateUserDTO,
   type IUserController,
+  type IChangeStatusUserDTO,
 } from "./types";
 import { container } from "tsyringe";
 
@@ -37,5 +39,16 @@ export class UserController implements IUserController {
     const { id, ...data } = args.input;
     const editUsersService = container.resolve(EditUsersService);
     return editUsersService.execute(id, data);
+  }
+
+  public async statusChangeMutation(
+    _: undefined,
+    args: { input: IChangeStatusUserDTO & { id: User["id"] } }
+  ): Promise<User> {
+    const { id, status } = args.input;
+    const changeStatusUsersService = container.resolve(
+      ChangeStatusUsersService
+    );
+    return changeStatusUsersService.execute(id, { status });
   }
 }
