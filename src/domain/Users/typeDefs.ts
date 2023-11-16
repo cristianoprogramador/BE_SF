@@ -18,11 +18,12 @@ export const userTypes = gql`
 
   type Mutation {
     createUser(
-      name: String
-      birthDate: String
-      position: String
-      email: String
-      salary: Float
+      name: String!
+      birthDate: String!
+      position: String!
+      email: String!
+      salary: Float!
+      imageUrl: String
     ): User
   }
 `;
