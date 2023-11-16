@@ -12,6 +12,7 @@ describe("service: CreateUsersService", () => {
       ...CREATE_USER_LIST_MOCK,
       id: 1,
       createdAt: expect.any(Date),
+      status: "Active",
     });
   });
 });

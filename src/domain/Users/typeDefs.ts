@@ -10,6 +10,7 @@ export const userTypes = gql`
     projects: [Project]
     imageUrl: String
     email: String
+    status: String
   }
 
   type Query {

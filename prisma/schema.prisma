@@ -19,6 +19,7 @@ model User {
   imageUrl     String?
   email        String
   salary       Float
+  status       String                @default("Active")
   projects     Project[]             @relation("UserProject")
   userProjects UserProjectRelation[]
 }
