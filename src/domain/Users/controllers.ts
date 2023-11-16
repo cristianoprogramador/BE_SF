@@ -1,10 +1,15 @@
 import { type User } from "@prisma/client";
 import {
   CreateUsersService,
+  EditUsersService,
   GetProjectsByUserIdService,
   ListUsersService,
 } from "./services";
-import { type ICreateUserDTO, type IUserController } from "./types";
+import {
+  type IEditUserDTO,
+  type ICreateUserDTO,
+  type IUserController,
+} from "./types";
 import { container } from "tsyringe";
 
 export class UserController implements IUserController {
@@ -23,5 +28,14 @@ export class UserController implements IUserController {
       GetProjectsByUserIdService
     );
     return getProjectsByUserIdService.execute(parent.id);
+  }
+
+  public async editUserMutation(
+    _: undefined,
+    args: { input: IEditUserDTO & { id: User["id"] } }
+  ): Promise<User> {
+    const { id, ...data } = args.input;
+    const editUsersService = container.resolve(EditUsersService);
+    return editUsersService.execute(id, data);
   }
 }

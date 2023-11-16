@@ -26,5 +26,15 @@ export const userTypes = gql`
       salary: Float!
       imageUrl: String
     ): User
+    editUser(input: EditUserData): User
+  }
+
+  input EditUserData {
+    id: Int!
+    name: String
+    birthDate: String
+    position: String
+    salary: Float
+    imageUrl: String
   }
 `;
