@@ -3,6 +3,7 @@ import { type ICreateUserDTO } from "./createUserDTO";
 import { type IEditUserDTO } from "./editUserDTO";
 import { type IChangeStatusUserDTO } from "./changeStatusUserDTO";
 
+
 export interface IUserController {
   usersQuery(): Promise<User[]>;
   editUserMutation(_: undefined, args: { input: IEditUserDTO }): Promise<User>;
