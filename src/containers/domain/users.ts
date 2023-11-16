@@ -13,6 +13,7 @@ import {
   GetProjectsByUserIdService,
   ListUsersService,
   EditUsersService,
+  ChangeStatusUsersService,
 } from "@/domain/Users/services";
 
 // Repositories
@@ -31,4 +32,8 @@ container
     GetProjectsByUserIdService
   )
   .register<ListUsersService>("ListUsersService", ListUsersService)
-  .register<EditUsersService>("EditUsersService", EditUsersService);
+  .register<EditUsersService>("EditUsersService", EditUsersService)
+  .register<ChangeStatusUsersService>(
+    "ChangeStatusUsersService",
+    ChangeStatusUsersService
+  );

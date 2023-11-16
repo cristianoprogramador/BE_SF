@@ -3,6 +3,7 @@ import {
   type ICreateUserDTO,
   type IUserRepository,
   type IEditUserDTO,
+  type IChangeStatusUserDTO,
 } from "../types";
 import { injectable } from "tsyringe";
 
@@ -105,6 +106,26 @@ export class UserRepositoryMock implements IUserRepository {
   }
 
   public async editUser(userId: User["id"], data: IEditUserDTO) {
+    const existingUserIndex = EDIT_USERS_LIST_MOCK.findIndex(
+      (userMock) => userMock.id === userId
+    );
+
+    if (existingUserIndex === -1) {
+      throw new Error("User not found");
+    }
+
+    EDIT_USERS_LIST_MOCK[existingUserIndex] = {
+      ...EDIT_USERS_LIST_MOCK[existingUserIndex],
+      ...data,
+    };
+
+    return EDIT_USERS_LIST_MOCK[existingUserIndex];
+  }
+
+  public async changeStatusUser(
+    userId: User["id"],
+    data: IChangeStatusUserDTO
+  ) {
     const existingUserIndex = EDIT_USERS_LIST_MOCK.findIndex(
       (userMock) => userMock.id === userId
     );

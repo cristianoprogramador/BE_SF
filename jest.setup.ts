@@ -7,6 +7,7 @@ import {
   GetProjectsByUserIdService,
   ListUsersService,
   EditUsersService,
+  ChangeStatusUsersService,
 } from "./src/domain/Users/services";
 
 container
@@ -17,4 +18,8 @@ container
     GetProjectsByUserIdService
   )
   .register<CreateUsersService>("CreateUsersService", CreateUsersService)
-  .register<EditUsersService>("EditUsersService", EditUsersService);
+  .register<EditUsersService>("EditUsersService", EditUsersService)
+  .register<ChangeStatusUsersService>(
+    "ChangeStatusUsersService",
+    ChangeStatusUsersService
+  );

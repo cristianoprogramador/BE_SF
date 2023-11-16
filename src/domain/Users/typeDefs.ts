@@ -27,6 +27,7 @@ export const userTypes = gql`
       imageUrl: String
     ): User
     editUser(input: EditUserData): User
+    statusChangeUser(input: statusChangeUserData): User
   }
 
   input EditUserData {
@@ -36,5 +37,10 @@ export const userTypes = gql`
     position: String
     salary: Float
     imageUrl: String
+  }
+
+  input statusChangeUserData {
+    id: Int!
+    status: String!
   }
 `;
